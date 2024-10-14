@@ -1,0 +1,26 @@
+<idea-plugin>
+    <id>org.example.codestats</id>
+    <name>Code Statistics</name>
+    <version>1.0.0</version>
+    <vendor>Example Vendor</vendor>
+
+    <description>
+        Plugin shows code statistics in real-time.
+    </description>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow id="Code Stats"
+                    anchor="right"
+                    factoryClass="org.example.codestats.StatsToolWindowFactory"/>
+
+        <editorFactoryListener implementation="org.example.codestats.EditorEventListener"/>
+    </extensions>
+
+    <applicationListeners>
+        <listener class="org.example.codestats.MyFileEditorManagerListener"
+                  topic="com.intellij.openapi.fileEditor.FileEditorManagerListener"/>
+    </applicationListeners>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.java</depends>
+</idea-plugin>
